@@ -9,3 +9,4 @@
 ## Records
 1. [Day1](https://github.com/rkdud007/30javascript/blob/main/day1/day1.md) 7/10
 2. [Day2](https://github.com/rkdud007/30javascript/blob/main/day2/day2.md) 7/10
+3. [Day3](https://github.com/rkdud007/30javascript/blob/main/day3/day3.md) 7/11
