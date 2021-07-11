@@ -18,7 +18,7 @@ body {
 
 :root{
     --bg-color: rgb(0, 0, 0);
-    --blur: 1px;
+    --blur: 0px;
     --scale: 1;
     --bright:1;
     --contrast:100%;
@@ -26,7 +26,7 @@ body {
 }
 .root_img{
     transform: scale(1) !important;
-    filter: saturate(100%) blur(1px) contrast(100%) brightness(1) !important;
+    filter: saturate(100%) blur(0px) contrast(100%) brightness(1) !important;
     ;
 
 }
