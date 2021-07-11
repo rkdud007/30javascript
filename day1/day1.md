@@ -51,4 +51,4 @@ _강의에서는 keydown을 이용해 구현했지만 키가 눌리는 동안 �
 > `var el = document.querySelector("div.user-panel.main input[name=login]");`
 
 내 코드에서 쓰인 예시로는  
-`const audio = document.querySelector(`audio[data-press="${e.keyCode}"]`);` 이다.
+`` const audio = document.querySelector(`audio[data-press="${e.keyCode}"]`); `` 이다.
