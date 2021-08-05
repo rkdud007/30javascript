@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+const input = document.querySelector('.search');
+const suggestion = document.querySelector('.suggestions');
+let data_list = [];
+
+function matchRegExp(word, data){
+    return data.filter(dat => {
+        const regexp = new RegExp(word, 'gi');
+        return dat.city.match(regexp) || dat.state.match(regexp)    
+    })
+}
+
+const doFinding = (e) => {
+    console.log(e.target.value)
+    const matchArray = matchRegExp(e.target.value, data_list);
+    const html = matchArray.map(matchItem => {
+        const regex = new RegExp(e.target.value,'gi');
+        const cityName = matchItem.city.replace(regex, `<span class="hl">${e.target.value}</span>`);
+        const stateName = matchItem.state.replace(regex, `<span class="hl">${e.target.value}</span>`)
+        return `
+            <li>
+                <span>${cityName}, ${stateName}</span>    
+            </li>
+        `;
+    }).join('');
+    console.log(html);
+    suggestion.innerHTML = html;
+}
+
+
+
+async function getCity(){
+    const response = await fetch(endpoint);
+    const data = await response.json()
+    data_list = [...data];
+;}
+
+input.addEventListener('keyup',doFinding)
+
+
+
+getCity();
+</script>
+</body>
+</html>
